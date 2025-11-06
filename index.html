@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مطبعة قمرة</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #000;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            direction: rtl;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: rgb(175, 3, 3);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        
+        .header h1 {
+            font-size: 4rem;
+            color: #FF6B00;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        
+        .header h2 {
+            font-size: 3rem;
+            color: rgb(192, 6, 6);
+            font-family: 'Brush Script MT', cursive;
+            margin-top: 10px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        
+        .card {
+            background: #222;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+            transition: transform 0.3s ease;
+            height: 490px; /* ارتفاع البطاقة */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card .img-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: #111; /* خلفية داكنة إذا كانت الصورة صغيرة */
+           
+        }
+        
+        .card .img-container img {
+            max-width: 360px; /* لا تملأ 100% لترك هامش */
+            max-height: 1000px; /* لا تملأ 100% لترك هامش */
+            object-fit: contain; /* ⭐ يحافظ على نسبة الصورة ويظهرها كاملة */
+            object-position: center;
+            border-bottom: 3px solid white;
+            transition: all 0.3s ease;
+          
+        }
+
+        .card:hover .img-container img {
+            transform: scale(1.05); /* تكبير عند التمرير */
+        }
+
+        /* Footer Design */
+        .footer-style {
+          /*  background: url('https://i.imgur.com/8ZzGqYd.png') center/cover no-repeat; */
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 40px;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-style .contact {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .footer-style .contact .icon {
+            width: 50px;
+            height: 50px;
+            background: #d32f2f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .footer-style .contact .text {
+            text-align: right;
+        }
+
+        .footer-style .contact .text span {
+            display: block;
+            font-weight: bold;
+        }
+
+        .footer-style .social {
+            margin: 25px 0;
+        }
+
+        .footer-style .social .label {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #d32f2f;
+        }
+
+        .footer-style .social .icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 1.8rem;
+        }
+
+        .footer-style .social .icons a {
+            color: white;
+            background: #d32f2f;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-style .social .icons a:hover {
+            transform: scale(1.1);
+        }
+
+        .footer-style .order-btn {
+            display: inline-block;
+            background: #d32f2f;
+            color: white;
+            padding: 14px 40px;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .footer-style .order-btn:hover {
+            transform: scale(1.05);
+            background: #c62828;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="header">
+            <h1></h1>
+            <h2>123456</h2>
+        </div>
+        
+        <div class="grid">
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="img-container">
+                    <img src="1.jpg" alt="تصميم 1">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="2.jpg" alt="تصميم 2">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="3.jpg" alt="تصميم 3">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="4.jpg" alt="تصميم 4">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="5.jpg" alt="تصميم 5">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="6.jpg" alt="تصميم 6">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="7.jpg" alt="تصميم 7">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="8.jpg" alt="تصميم 8">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="9.jpg" alt="تصميم 9">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="10.jpg" alt="تصميم 10">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="11.jpg" alt="تصميم 11">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="12.jpg" alt="تصميم 12">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="13.jpg" alt="تصميم 13">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="14.jpg" alt="تصميم 14">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="15.jpg" alt="تصميم 15">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="16.jpg" alt="تصميم 16">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="17.jpg" alt="تصميم 17">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="18.jpg" alt="تصميم 18">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="19.jpg" alt="تصميم 19">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="20.jpg" alt="تصميم 20">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="21.jpg" alt="تصميم 21">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="22.jpg" alt="تصميم 22">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="23.jpg" alt="تصميم 23">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="24.jpg" alt="تصميم 24">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="25.jpg" alt="تصميم 25">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="26.jpg" alt="تصميم 26">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="27.jpg" alt="تصميم 27">
+                </div>
+            </div>
+
+             <div class="card">
+                <div class="img-container">
+                    <img src="28.jpg" alt="تصميم 28">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="29.jpg" alt="تصميم 29">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="30.jpg" alt="تصميم 30">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="31.jpg" alt="تصميم 31">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="32.jpg" alt="تصميم 32">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="33.jpg" alt="تصميم 33">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="34.jpg" alt="تصميم 34">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="35.jpg" alt="تصميم 35">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="36.jpg" alt="تصميم 36">
+                </div>
+            </div>
+
+             <div class="card">
+                <div class="img-container">
+                    <img src="37.jpg" alt="تصميم 37">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="38.jpg" alt="تصميم 38">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="39.jpg" alt="تصميم 39">
+                </div>
+            </div>
+
+             <div class="card">
+                <div class="img-container">
+                    <img src="40.jpg" alt="تصميم 40">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="41.jpg" alt="تصميم 41">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="42.jpg" alt="تصميم 42">
+                </div>
+            </div>
+
+             <div class="card">
+                <div class="img-container">
+                    <img src="43.jpg" alt="تصميم 43">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="44.jpg" alt="تصميم 44">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="45.jpg" alt="تصميم 45">
+                </div>
+            </div>
+
+             <div class="card">
+                <div class="img-container">
+                    <img src="46.jpg" alt="تصميم 46">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="47.jpg" alt="تصميم 47">
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="48.jpg" alt="تصميم 48">
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer-style">
+        <!-- Call for Delivery -->
+        <div class="contact">
+            <div class="icon">
+                <i class="fas fa-phone"></i>
+            </div>
+            <div class="text">
+                <span>Call for Delivery</span>
+                <span style="font-size: 1.6rem; color: #d32f2f; font-weight: bold;">+123 456 789</span>
+            </div>
+        </div>
+
+        <!-- Follow Us On -->
+        <div class="social">
+            <div class="label">FOLLOW US ON</div>
+            <div class="icons">
+                <a href="https://www.instagram.com/96mop?igsh=dml5dXB6bDZ0aHJl" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com/your_facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/your_twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://wa.me/message/NIWERWCXITTXA1" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+
+        <!-- Order Now Button -->
+        <a href="#" class="order-btn">ORDER NOW</a>
+    </div>
+
+    <!-- Font Awesome for Icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+
+</body>
+</html>
